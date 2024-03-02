@@ -6,8 +6,8 @@ body {
 
   }
 table{
-    width: 80%;
-    margin: 40px auto;
+    width: 100%; /* Occupy full width */
+    margin: 20px auto; /* Adjusted margin for better spacing */
     background: rgba(35,93,148,255);
     border-collapse: collapse;
 
