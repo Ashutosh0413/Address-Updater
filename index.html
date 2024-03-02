@@ -14,7 +14,7 @@
     <table>
         <tr>
             <td>
-                <form autocomplete="off" onsubmit="onFormSubmit()">
+                <form autocomplete="off" onsubmit="return onFormSubmit(event)">
                     <div>
                         <label for="buildingNumber">Building Number</label>
                         <input type="text" name="buildingNumber" id="buildingNumber">
@@ -61,6 +61,6 @@
             </td>
         </tr>
     </table>
-    
+    <script src="script.js"></script>
 </body>
 </html>
