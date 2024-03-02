@@ -1,27 +1,33 @@
+
 body {
     font-family: 'Noto Sans', sans-serif;
     font-size: 20px;
     color: #eee;
+
   }
 table{
     width: 80%;
     margin: 40px auto;
     background: rgba(35,93,148,255);
+    border-collapse: collapse;
+
 }
 
 table.list{
     text-align: center;
     width: 100%;
+
 }
 
-td{
+td,th{
     border: 1px solid rgb(204,200,200);
     text-align: left;
     padding: 8px 15px;
 }
 
-tr:nth-child(even), table.list thread> tr{
-    background-color: rgb(204,200,200);
+th { 
+    background-color:rgba(35,125,165,255); 
+    color: white;
 }
 
 input[type="text"]{
@@ -51,5 +57,37 @@ input[type="submit"]:hover{
 
 input[type="reset"]:hover{
     background: rgba(242,233,71,255);
+}
+
+button {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+button.edit {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+
+button.delete {
+    background-color: #f44336;
+    color: white;
+    font-size: 22px;
+}
+
+button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 

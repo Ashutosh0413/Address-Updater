@@ -5,16 +5,31 @@ function onFormSubmit(e) {
 
     let formData = readFormData();
     if (validateFormData(formData)) {
-        if (selectedRow === null) {
-            insertNewRecord(formData);
+        if (!isDuplicate(formData)) {
+            if (selectedRow === null) {
+                insertNewRecord(formData);
+            } else {
+                updateRecord(formData);
+            }
+            resetForm();
         } else {
-            updateRecord(formData);
+            displayError('This address already exists!');
         }
-        resetForm();
     } else {
         displayError('Please correct the form errors before submitting.');
     }
     return false;
+}
+
+function readFormData() {
+    //store all the user submitted details as values in an object so it is easier to use them to populate the cells
+    let formData = {};
+    formData["buildingNumber"] = document.getElementById("buildingNumber").value;
+    formData["buildingName"] = document.getElementById("buildingName").value;
+    formData["city"] = document.getElementById("city").value;
+    formData["landmark"] = document.getElementById("landmark").value;
+    formData["pinCode"] = document.getElementById("pinCode").value;
+    return formData;
 }
 
 function validateFormData(formData) {
@@ -37,17 +52,23 @@ function clearErrors() {
 }
 
 //read form data
-
-function readFormData() {
-    //store all the user submitted details as values in an object so it is easier to use them to populate the cells
-    let formData = {};
-    formData["buildingNumber"] = document.getElementById("buildingNumber").value;
-    formData["buildingName"] = document.getElementById("buildingName").value;
-    formData["city"] = document.getElementById("city").value;
-    formData["landmark"] = document.getElementById("landmark").value;
-    formData["pinCode"] = document.getElementById("pinCode").value;
-    return formData;
+function isDuplicate(formData) {
+    let table = document.getElementById("storeList").getElementsByTagName('tbody')[0];
+    for (let i = 0; i < table.rows.length; i++) {
+        let row = table.rows[i];
+        if (
+            row.cells[0].innerHTML === formData.buildingNumber &&
+            row.cells[1].innerHTML === formData.buildingName &&
+            row.cells[2].innerHTML === formData.city &&
+            row.cells[3].innerHTML === formData.landmark &&
+            row.cells[4].innerHTML === formData.pinCode
+        ) {
+            return true; // Duplicate 
+        }
+    }
+    return false; // No duplicate
 }
+
 
 //insert data into the table cells
 function insertNewRecord(data) {
@@ -68,7 +89,7 @@ function insertNewRecord(data) {
     cell6 = newRow.insertCell(5);
     cell6.innerHTML = fullAddress;
     cell7 = newRow.insertCell(6);
-    cell7.innerHTML = `<button onClick="onEdit(this)">Edit</button> <button onClick="onDelete(this)">Delete</button>`; 
+    cell7.innerHTML = `<button class="edit" onClick="onEdit(this)">Edit</button> <button class="delete" onClick="onDelete(this)">Delete</button>`; 
     //Prompt the edit and delete buttons
 }
 
