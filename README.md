@@ -1,4 +1,8 @@
 # Address-Updater
+Github Repository- https://github.com/Ashutosh0413/Address-Updater
+
+Deployed Site- https://ashutosh0413.github.io/Address-Updater/
+
 Address Updater allows the users to add, edit, delete address records.
 
 The website ensures that there are no duplicate entries.
