@@ -85,7 +85,7 @@ function insertNewRecord(data) {
     cell5 = newRow.insertCell(4);
 	    cell5.innerHTML = data.pinCode;
     //reading the full address of the user
-    let fullAddress = data.buildingNumber + ' ' + data.buildingName + ', ' + 'near ' + data.landmark + data.city  + '-' + data.pinCode;
+    let fullAddress = data.buildingNumber + ' ' + data.buildingName + ', ' + 'near ' + data.landmark +', '+ data.city  + '-' + data.pinCode;
     cell6 = newRow.insertCell(5);
     cell6.innerHTML = fullAddress;
     cell7 = newRow.insertCell(6);
