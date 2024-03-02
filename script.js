@@ -1,16 +1,39 @@
 let selectedRow = null;
-function onFormSubmit(e){
-    e.preventDefault;
-    let formData = readFormData();
-    if(selectedRow===null){
-        insertNewRecord(formData);
-    }
-    else{
-        updateRecord(formData);
-    }
-    resetForm();
-    return false; 
+function onFormSubmit(e) {
+    e.preventDefault();
+    clearErrors();
 
+    let formData = readFormData();
+    if (validateFormData(formData)) {
+        if (selectedRow === null) {
+            insertNewRecord(formData);
+        } else {
+            updateRecord(formData);
+        }
+        resetForm();
+    } else {
+        displayError('Please correct the form errors before submitting.');
+    }
+    return false;
+}
+
+function validateFormData(formData) {
+    let isValid = true;
+    // Validate pinCode using a regular expression for a 6-digit code
+    if (!formData.pinCode.match(/^\d{6}$/)) {
+        displayError('Please enter a valid 6-digit Pin Code.');
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function displayError(message) {
+    document.getElementById('error-message').textContent = message;
+}
+
+function clearErrors() {
+    document.getElementById('error-message').textContent = '';
 }
 
 //read form data

@@ -17,23 +17,23 @@
                 <form autocomplete="off" onsubmit="return onFormSubmit(event)">
                     <div>
                         <label for="buildingNumber">Building Number</label>
-                        <input type="text" name="buildingNumber" id="buildingNumber">
+                        <input type="text" name="buildingNumber" id="buildingNumber" required>
                     </div>
                     <div>
                         <label for="buildingName">Building Name</label>
-                        <input type="text" name="buildingName" id="buildingName">
+                        <input type="text" name="buildingName" id="buildingName" required>
                     </div>
                     <div>
                         <label for="city">City</label>
-                        <input type="text" name="city" id="city">
+                        <input type="text" name="city" id="city" required>
                     </div>
                     <div>
                         <label for="landmark">Landmark</label>
-                        <input type="text" name="landmark" id="landmark">
+                        <input type="text" name="landmark" id="landmark" required>
                     </div>
                     <div>
                         <label for="pinCode">Pin Code</label>
-                        <input type="text" id="pinCode" name="pinCode" required>
+                        <input type="text" id="pinCode" name="pinCode" required pattern="\d{6}" title="Please enter a valid 6-digit Pin Code">
                     </div>
             
                     <div class="formAction">
@@ -41,6 +41,7 @@
                         <input type="reset" value="Reset">
                     </div>
                 </form>
+                <div id="error-message" class="error-message"></div>
             <td>
             <table class="list" id="storeList">
                 <thead>
