@@ -6,33 +6,56 @@
     <title>Address Updater</title>
 </head>
 <body>
-    <form autocomplete="off" onsubmit="onFormSubmit()">
-        <div>
-            <label for="buildingNumber">Building Number</label>
-            <input type="text" name="buildingNumber" id="buildingNumber">
-        </div>
-        <div>
-            <label for="buildingName">Building Name</label>
-            <input type="text" name="buildingName" id="buildingName">
-        </div>
-        <div>
-            <label for="city">City</label>
-            <input type="text" name="city" id="city">
-        </div>
-        <div>
-            <label for="landmark">Landmark</label>
-            <input type="text" name="landmark" id="landmark">
-        </div>
-        <div>
-            <label for="pinCode">Pin Code:</label>
-            <input type="text" id="pinCode" name="pinCode" required>
-        </div>
+    <table>
+        <tr>
+            <td>
+                <form autocomplete="off" onsubmit="onFormSubmit()">
+                    <div>
+                        <label for="buildingNumber">Building Number</label>
+                        <input type="text" name="buildingNumber" id="buildingNumber">
+                    </div>
+                    <div>
+                        <label for="buildingName">Building Name</label>
+                        <input type="text" name="buildingName" id="buildingName">
+                    </div>
+                    <div>
+                        <label for="city">City</label>
+                        <input type="text" name="city" id="city">
+                    </div>
+                    <div>
+                        <label for="landmark">Landmark</label>
+                        <input type="text" name="landmark" id="landmark">
+                    </div>
+                    <div>
+                        <label for="pinCode">Pin Code</label>
+                        <input type="text" id="pinCode" name="pinCode" required>
+                    </div>
+            
+                    <div class="formAction">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </div>
+                </form>
+            <td>
+            <table class="list" id="storeList">
+                <thead>
+                    <tr>
+                        <th>Building Number</th>
+                        <th>Building Name</th>
+                        <th>City</th>
+                        <th>Landmark</th>
+                        <th>Pincode</th>
+                        <th>Full Address</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-        <div class="formAction">
-            <input type="submit" value="Submit">
-            <input type="reset" value="Reset">
-        </div>
-    </form>
+                </tbody>
+            </table>
+            </td>
+            </td>
+        </tr>
+    </table>
     
 </body>
 </html>
